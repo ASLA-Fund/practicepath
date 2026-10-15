@@ -1,0 +1,432 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Practice Path: from studio to license</title>
+<meta name="description" content="Programs, scholarships, and exam resources from the landscape architecture President's Council organizations, organized by where you are on the path from student to licensed landscape architect.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&amp;family=Instrument+Sans:wght@400;500;600&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#F1F3EE}
+a{color:#0E2219}a:hover{color:#3D4F45}
+button{font:inherit}
+button:focus-visible,a:focus-visible{outline:3px solid #0E2219;outline-offset:3px}
+@media (max-width: 820px){
+  .pp-hero-topo{display:none !important}
+  .pp-h1{font-size:48px !important}
+  .pp-section{padding-left:20px !important;padding-right:20px !important}
+}
+</style>
+</head>
+<body>
+<div id="app"></div>
+<template id="tpl">
+<div style="width: 100%; min-height: 100vh; background: #F1F3EE; color: #0E2219; font-family: 'Instrument Sans', system-ui, sans-serif; font-size: 16px; line-height: 1.55">
+
+<header class="pp-section" style="padding: 20px 64px; border-bottom: 1px solid #D3DAD3">
+<div style="max-width: 1240px; margin: 0 auto; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px">
+<a href="#top" style="display: flex; align-items: center; gap: 10px; text-decoration: none; color: #0E2219">
+<svg width="34" height="34" viewBox="0 0 34 34" aria-hidden="true"><circle cx="17" cy="17" r="15" fill="none" stroke="#0E2219" stroke-width="1.75"></circle><path d="M5 21 C11 13, 17 25, 29 12" fill="none" stroke="#0E2219" stroke-width="1.75" stroke-linecap="round"></path><circle cx="29" cy="12" r="3.5" fill="#C8F04A" stroke="#0E2219" stroke-width="1.5"></circle></svg>
+<span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 22px; letter-spacing: -0.02em">practice path</span>
+</a>
+<nav aria-label="Main" style="display: flex; flex-wrap: wrap; gap: 6px 28px; font-size: 15px; font-weight: 500">
+<a href="#path" style="text-decoration: none">The path</a>
+<a href="#needs" style="text-decoration: none">All resources</a>
+<a href="#deadlines" style="text-decoration: none">Deadlines</a>
+<a href="#about" style="text-decoration: none">About</a>
+</nav>
+</div>
+</header>
+
+<section id="top" class="pp-section" style="position: relative; overflow: hidden; padding: 88px 64px 64px">
+<svg class="pp-hero-topo" width="620" height="520" viewBox="0 0 620 520" aria-hidden="true" style="position: absolute; right: -60px; top: -40px">
+<g fill="none" stroke="#C9D2C9" stroke-width="1.25">
+<path d="M80 300 C120 160 300 90 430 140 C560 190 600 330 500 410 C400 490 160 470 100 390 C70 350 72 320 80 300 Z"></path>
+<path d="M140 300 C170 200 300 150 410 185 C520 220 545 320 470 380 C395 440 210 425 160 365 C140 340 135 318 140 300 Z"></path>
+<path d="M200 300 C220 235 310 205 390 228 C470 252 488 315 440 352 C392 390 262 380 225 342 C210 327 196 314 200 300 Z"></path>
+<path d="M258 298 C272 262 322 247 368 262 C414 278 420 312 396 330 C372 349 300 344 278 324 C266 314 254 306 258 298 Z"></path>
+<path d="M20 230 C90 60 330 -10 500 50 C640 100 660 250 600 360"></path>
+<path d="M0 160 C80 10 300 -50 470 -10"></path>
+</g>
+<circle cx="330" cy="296" r="9" fill="#C8F04A" stroke="#0E2219" stroke-width="2"></circle>
+</svg>
+<div style="position: relative; max-width: 1240px; margin: 0 auto">
+<div style="font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: #3D4F45">Student to licensure, in one place</div>
+<h1 class="pp-h1" style="margin: 18px 0 0; max-width: 820px; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 76px; line-height: 1.0; letter-spacing: -0.035em">Find your place on the path to practice.</h1>
+<p style="margin: 24px 0 0; max-width: 600px; font-size: 20px; line-height: 1.5; color: #3D4F45">Programs, scholarships, and exam resources from the organizations that shape landscape architecture, sorted by where you are right now.</p>
+<div style="margin-top: 44px">
+<div id="where-label" style="font-weight: 600; font-size: 15px; margin-bottom: 12px">Where are you right now?</div>
+<div role="group" aria-labelledby="where-label" style="display: flex; flex-wrap: wrap; gap: 10px">
+<sc-for list="{{stops}}" as="s" hint-placeholder-count="6">
+<button type="button" onClick="{{s.select}}" aria-pressed="{{s.pressed}}" style="{{s.chipStyle}}">{{s.chip}}</button>
+</sc-for>
+</div>
+</div>
+<div style="margin-top: 40px; display: flex; flex-wrap: wrap; gap: 8px 32px; font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #3D4F45">
+<span>75 resources</span><span>6 organizations</span><span>1 path</span>
+</div>
+</div>
+</section>
+
+<section id="path" class="pp-section" style="padding: 24px 64px 88px">
+<div style="max-width: 1240px; margin: 0 auto">
+<h2 style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: 36px; letter-spacing: -0.02em">The path</h2>
+<p style="margin: 8px 0 0; color: #3D4F45">Six stops from your first studio to your license. Pick one to see what to do and where to go.</p>
+
+<div style="margin-top: 40px; overflow-x: auto; padding-bottom: 8px">
+<div style="position: relative; min-width: 940px; padding-top: 28px">
+<span style="position: absolute; left: 0; top: 0; font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: #3D4F45">Trailhead: first studio</span>
+<div style="position: relative; display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 12px">
+<sc-for list="{{stops}}" as="s" hint-placeholder-count="6">
+<div style="position: relative; min-height: 290px">
+<sc-if value="{{s.first}}" hint-placeholder-val="{{false}}"><svg viewBox="0 0 100 200" preserveAspectRatio="none" aria-hidden="true" style="position: absolute; left: 0; top: 0; width: 50%; height: 200px; overflow: visible"><path d="M0 62 L100 62" fill="none" stroke="#C3CDC3" stroke-width="48" vector-effect="non-scaling-stroke"></path><path d="M0 62 L100 62" fill="none" stroke="#E4E9E1" stroke-width="40" vector-effect="non-scaling-stroke"></path><path d="M0 62 L100 62" fill="none" stroke="#C8F04A" stroke-width="12" vector-effect="non-scaling-stroke"></path><path d="M0 62 L100 62" fill="none" stroke="#0E2219" stroke-width="3" stroke-dasharray="1 14" stroke-linecap="round" vector-effect="non-scaling-stroke"></path></svg></sc-if>
+<sc-if value="{{s.down}}" hint-placeholder-val="{{false}}"><svg viewBox="0 0 100 200" preserveAspectRatio="none" aria-hidden="true" style="position: absolute; left: 50%; top: 0; width: calc(100% + 12px); height: 200px; overflow: visible"><path d="M0 62 C50 62 50 142 100 142" fill="none" stroke="#C3CDC3" stroke-width="48" vector-effect="non-scaling-stroke"></path><path d="M0 62 C50 62 50 142 100 142" fill="none" stroke="#E4E9E1" stroke-width="40" vector-effect="non-scaling-stroke"></path><path d="M0 62 C50 62 50 142 100 142" fill="none" stroke="#0E2219" stroke-width="3" stroke-dasharray="1 14" stroke-linecap="round" vector-effect="non-scaling-stroke"></path></svg></sc-if>
+<sc-if value="{{s.up}}" hint-placeholder-val="{{false}}"><svg viewBox="0 0 100 200" preserveAspectRatio="none" aria-hidden="true" style="position: absolute; left: 50%; top: 0; width: calc(100% + 12px); height: 200px; overflow: visible"><path d="M0 142 C50 142 50 62 100 62" fill="none" stroke="#C3CDC3" stroke-width="48" vector-effect="non-scaling-stroke"></path><path d="M0 142 C50 142 50 62 100 62" fill="none" stroke="#E4E9E1" stroke-width="40" vector-effect="non-scaling-stroke"></path><path d="M0 142 C50 142 50 62 100 62" fill="none" stroke="#0E2219" stroke-width="3" stroke-dasharray="1 14" stroke-linecap="round" vector-effect="non-scaling-stroke"></path></svg></sc-if>
+<div style="{{s.downWalkedStyle}}"><svg viewBox="0 0 100 200" preserveAspectRatio="none" aria-hidden="true" style="position: absolute; left: 50%; top: 0; width: calc(100% + 12px); height: 200px; overflow: visible"><path d="M0 62 C50 62 50 142 100 142" fill="none" stroke="#C8F04A" stroke-width="12" vector-effect="non-scaling-stroke"></path><path d="M0 62 C50 62 50 142 100 142" fill="none" stroke="#0E2219" stroke-width="3" stroke-dasharray="1 14" stroke-linecap="round" vector-effect="non-scaling-stroke"></path></svg></div>
+<div style="{{s.upWalkedStyle}}"><svg viewBox="0 0 100 200" preserveAspectRatio="none" aria-hidden="true" style="position: absolute; left: 50%; top: 0; width: calc(100% + 12px); height: 200px; overflow: visible"><path d="M0 142 C50 142 50 62 100 62" fill="none" stroke="#C8F04A" stroke-width="12" vector-effect="non-scaling-stroke"></path><path d="M0 142 C50 142 50 62 100 62" fill="none" stroke="#0E2219" stroke-width="3" stroke-dasharray="1 14" stroke-linecap="round" vector-effect="non-scaling-stroke"></path></svg></div>
+<sc-if value="{{s.last}}" hint-placeholder-val="{{false}}"><svg viewBox="0 0 100 200" preserveAspectRatio="none" aria-hidden="true" style="position: absolute; left: 50%; top: 0; width: 50%; height: 200px; overflow: visible"><path d="M0 142 L100 142" fill="none" stroke="#C3CDC3" stroke-width="48" vector-effect="non-scaling-stroke"></path><path d="M0 142 L100 142" fill="none" stroke="#E4E9E1" stroke-width="40" vector-effect="non-scaling-stroke"></path><path d="M0 142 L100 142" fill="none" stroke="#0E2219" stroke-width="3" stroke-dasharray="1 14" stroke-linecap="round" vector-effect="non-scaling-stroke"></path></svg><span style="position: absolute; right: 0; top: 96px; display: flex; align-items: center; gap: 6px; font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: #0E2219"><svg width="16" height="18" viewBox="0 0 16 18" aria-hidden="true"><path d="M2 17V1M2 2h11l-3 4 3 4H2" fill="#C8F04A" stroke="#0E2219" stroke-width="1.75" stroke-linejoin="round"></path></svg>Licensed</span></sc-if>
+<button type="button" onClick="{{s.select}}" aria-pressed="{{s.pressed}}" style="{{s.btnStyle}}">
+<span style="{{s.hereStyle}}">You are here</span>
+<span style="{{s.markerStyle}}">{{s.num}}</span>
+<span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: 18px; line-height: 1.2; letter-spacing: -0.01em">{{s.name}}</span>
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #3D4F45">{{s.count}} resources</span>
+</button>
+</div>
+</sc-for>
+</div>
+</div>
+</div>
+
+<div style="margin-top: 40px; background: #FFFFFF; border: 1px solid #D3DAD3; border-radius: 20px; padding: 40px; display: flex; flex-wrap: wrap; gap: 40px">
+<div style="flex: 1 1 300px; min-width: 0">
+<div style="font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: #3D4F45">Stop {{cur.num}} of 6</div>
+<h3 style="margin: 10px 0 0; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 40px; line-height: 1.05; letter-spacing: -0.025em">{{cur.name}}</h3>
+<p style="margin: 12px 0 0; font-size: 18px; color: #3D4F45">{{cur.question}}</p>
+<div style="margin-top: 28px; font-weight: 600">Start here</div>
+<ul style="list-style: none; margin: 12px 0 0; padding: 0; display: flex; flex-direction: column; gap: 14px">
+<sc-for list="{{cur.todo}}" as="t" hint-placeholder-count="4">
+<li style="display: flex; gap: 12px; align-items: flex-start">
+<svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true" style="flex: none; margin-top: 1px"><circle cx="12" cy="12" r="10" fill="#C8F04A" stroke="#0E2219" stroke-width="1.75"></circle><path d="M7.5 12.5 l3 3 l6 -7" fill="none" stroke="#0E2219" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+<span>{{t.text}}</span>
+</li>
+</sc-for>
+</ul>
+<button type="button" onClick="{{toggleAll}}" aria-expanded="{{cur.expandedAttr}}" style="margin-top: 32px; display: inline-flex; align-items: center; gap: 8px; min-height: 48px; padding: 0 22px; border-radius: 999px; border: 0; cursor: pointer; background: #0E2219; color: #FFFFFF; font-weight: 600; font-size: 16px">{{cur.moreLabel}}<svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="#C8F04A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
+</div>
+<div style="flex: 999 1 560px; min-width: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 16px">
+<sc-for list="{{cur.cards}}" as="c" hint-placeholder-count="6">
+<article style="display: flex; flex-direction: column; gap: 10px; padding: 22px; background: #F1F3EE; border-radius: 14px">
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px">
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 500; padding: 3px 9px; border: 1.5px solid #0E2219; border-radius: 999px">{{c.org}}</span>
+<span style="font-size: 13px; color: #3D4F45">{{c.need}}</span>
+</div>
+<h4 style="margin: 2px 0 0; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: 20px; line-height: 1.2; letter-spacing: -0.01em">{{c.name}}</h4>
+<p style="margin: 0; font-size: 15px; color: #3D4F45; flex-grow: 1">{{c.desc}}</p>
+<div style="font-size: 13px; color: #3D4F45"><strong style="color: #0E2219; font-weight: 600">{{c.cost}}</strong> · {{c.timing}}</div>
+<a href="{{c.url}}" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; gap: 6px; min-height: 44px; font-weight: 600; text-decoration: underline; text-underline-offset: 3px">Visit {{c.org}}<svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></a>
+</article>
+</sc-for>
+</div>
+</div>
+</div>
+</section>
+
+<section id="deadlines" class="pp-section" style="padding: 72px 64px; background: #0E2219; color: #FFFFFF">
+<div style="max-width: 1240px; margin: 0 auto">
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 12px">
+<h2 style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: 36px; letter-spacing: -0.02em">Coming up</h2>
+<button type="button" onClick="{{toggleDeadlines}}" aria-expanded="{{dlExpanded}}" style="min-height: 44px; padding: 0 4px; background: none; border: 0; cursor: pointer; color: #C8F04A; font-weight: 600; font-size: 16px; text-decoration: underline; text-underline-offset: 4px">{{dlLabel}}</button>
+</div>
+<div style="margin-top: 32px; display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 16px">
+<sc-for list="{{deadlines}}" as="d" hint-placeholder-count="4">
+<a href="{{d.url}}" target="_blank" rel="noopener" style="display: flex; flex-direction: column; gap: 10px; padding: 24px; border: 1px solid #3A5446; border-radius: 14px; color: #FFFFFF; text-decoration: none">
+<span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 40px; line-height: 1; color: #C8F04A; letter-spacing: -0.02em">{{d.date}}</span>
+<span style="font-weight: 600; font-size: 17px">{{d.title}}</span>
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #B9C7BE">{{d.org}} · {{d.stop}}</span>
+</a>
+</sc-for>
+</div>
+<div style="{{dlListStyle}}">
+<h3 style="margin: 48px 0 0; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: 24px">Next 12 months</h3>
+<ul style="list-style: none; margin: 16px 0 0; padding: 0; border-top: 1px solid #3A5446">
+<sc-for list="{{deadlinesAll}}" as="d" hint-placeholder-count="12">
+<li style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px 24px; padding: 16px 0; border-bottom: 1px solid #3A5446">
+<span style="flex: 0 0 150px; font-family: 'JetBrains Mono', monospace; font-size: 14px; color: #C8F04A">{{d.date}}</span>
+<a href="{{d.url}}" target="_blank" rel="noopener" style="flex: 1 1 320px; min-width: 0; color: #FFFFFF; font-weight: 600; text-underline-offset: 3px">{{d.title}}</a>
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #B9C7BE">{{d.org}} · {{d.stop}}</span>
+</li>
+</sc-for>
+</ul>
+</div>
+</div>
+</section>
+
+<section id="needs" class="pp-section" style="padding: 88px 64px">
+<div style="max-width: 1240px; margin: 0 auto">
+<h2 style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: 36px; letter-spacing: -0.02em">Or browse by what you need</h2>
+<div style="margin-top: 32px; display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 12px">
+<sc-for list="{{needs}}" as="n" hint-placeholder-count="10">
+<button type="button" onClick="{{n.select}}" aria-pressed="{{n.pressed}}" style="{{n.tileStyle}}">
+<span>{{n.name}}</span>
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; font-weight: 500">{{n.count}}</span>
+</button>
+</sc-for>
+</div>
+<div style="{{needPanelStyle}}">
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 12px">
+<h3 style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 28px; letter-spacing: -0.02em">{{needTitle}}</h3>
+<button type="button" onClick="{{clearNeed}}" style="min-height: 44px; padding: 0 4px; background: none; border: 0; cursor: pointer; color: #0E2219; font-weight: 600; font-size: 15px; text-decoration: underline; text-underline-offset: 4px">Close</button>
+</div>
+<ul style="list-style: none; margin: 16px 0 0; padding: 0; border-top: 1px solid #D3DAD3">
+<sc-for list="{{needResults}}" as="r" hint-placeholder-count="6">
+<li style="display: flex; flex-wrap: wrap; gap: 6px 24px; padding: 18px 0; border-bottom: 1px solid #D3DAD3">
+<span style="flex: 0 0 72px"><span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 500; padding: 3px 9px; border: 1.5px solid #0E2219; border-radius: 999px">{{r.org}}</span></span>
+<div style="flex: 1 1 420px; min-width: 0">
+<a href="{{r.url}}" target="_blank" rel="noopener" style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: 19px; text-underline-offset: 3px">{{r.name}}</a>
+<p style="margin: 4px 0 0; font-size: 15px; color: #3D4F45">{{r.desc}}</p>
+</div>
+<div style="flex: 0 1 260px; font-size: 13px; color: #3D4F45"><strong style="color: #0E2219; font-weight: 600">{{r.cost}}</strong> · {{r.timing}}<br>{{r.stops}}</div>
+</li>
+</sc-for>
+</ul>
+</div>
+</div>
+</section>
+
+<section id="about" class="pp-section" style="padding: 72px 64px; background: #E3E8E1">
+<div style="max-width: 1240px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 40px; align-items: flex-start">
+<div style="flex: 1 1 320px; min-width: 0">
+<h2 style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: 32px; line-height: 1.1; letter-spacing: -0.02em">One path, built together</h2>
+<p style="margin: 14px 0 0; color: #3D4F45">Practice Path is an initiative of the Landscape Architecture President's Council. Every link goes straight to the organization that runs the program.</p>
+</div>
+<ul style="flex: 2 1 560px; min-width: 0; list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 12px">
+<sc-for list="{{orgs}}" as="o" hint-placeholder-count="6">
+<li><a href="{{o.url}}" target="_blank" rel="noopener" style="display: flex; flex-direction: column; gap: 2px; padding: 16px 18px; background: #F1F3EE; border-radius: 12px; text-decoration: none">
+<span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 20px">{{o.short}}</span>
+<span style="font-size: 14px; color: #3D4F45">{{o.full}}</span>
+</a></li>
+</sc-for>
+</ul>
+</div>
+</section>
+
+<footer class="pp-section" style="padding: 32px 64px; border-top: 1px solid #D3DAD3">
+<div style="max-width: 1240px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px; font-size: 14px; color: #3D4F45">
+<span>Practice Path · Maintained by ASLA for the President's Council</span>
+<nav aria-label="Footer" style="display: flex; flex-wrap: wrap; gap: 8px 24px">
+<a href="#about">Suggest a resource</a>
+<a href="#about">For educators</a>
+<a href="#about">Contact</a>
+</nav>
+</div>
+</footer>
+
+</div>
+</template>
+<script>
+
+class DCLogic { constructor(){ this.props = {}; this.state = null; } setState(p){ this.state = Object.assign({}, this.state || {}, p); render(); } }
+class Component extends DCLogic {
+  renderVals() {
+    var STOPS = [
+      { name: 'Study', chip: "I'm in school", count: 42, question: 'Am I in the right program, and how do I get involved?',
+        todo: ['Confirm your program is LAAB or LAAC accredited.', 'Join ASLA or CSLA as a student (both free) and your school chapter.', 'Open a free CLARB account now. You will upgrade it to a Record after graduating.', 'Put LABash on your calendar.'],
+        cards: [
+          ['ASLA', 'Accreditation & Programs', 'Degree Programs & Student Chapters Finder', 'Find accredited programs and the student chapter at your school.', 'Free', 'Ongoing', 'https://www.asla.org/become-a-la/schools-student-chapters'],
+          ['LAAB', 'Accreditation & Programs', 'Why accreditation matters', 'What LAAB accreditation means for your degree and your path to a license.', 'Free', 'Ongoing', 'https://www.asla.org/become-a-la/laab'],
+          ['ASLA', 'Community & Chapters', 'Student Membership', 'Free national membership with student programs and a path to Associate.', 'Free', 'Ongoing', 'https://www.asla.org/join/student-members'],
+          ['LABash', 'Events & Conferences', 'LABash Student Conference', 'The annual student-run conference, hosted by a different school each year.', 'Varies', 'Annual', 'https://www.asla.org/awards-events-main-landing/conferences-events/labash'],
+          ['CELA', 'Awards & Recognition', 'CELA Student Awards', 'Juried awards for student research and design, with conference registration.', 'Free', 'Nominations due Oct 31', 'https://thecela.org/student-nominations/'],
+          ['CLARB', 'Events & Conferences', 'Your Path to Licensure webinars', 'Free licensure talks for students, plus visits to practice courses.', 'Free', 'Spring and fall', 'https://www.clarb.org/outreach-and-advocacy/']
+        ] },
+      { name: 'Fund', chip: 'Paying for it', count: 11, question: 'How do I pay for school, travel, and the exam?',
+        todo: ['One LAF application covers more than 15 named scholarships.', 'Ask your faculty about nominations for Olmsted and Fountain awards.', 'Use travel grants to get to LABash and conferences.', 'Remember the exam has funding support too.'],
+        cards: [
+          ['LAF', 'Scholarships & Funding', 'LAF Student Scholarships', 'More than $150,000 a year across 15+ named awards, U.S. and Canada.', 'Free', 'Due Feb 1, 2027', 'https://www.lafoundation.org/what-we-do/scholarships/student-scholarships'],
+          ['LAF', 'Scholarships & Funding', 'LAF Ignite', 'A $10,000 yearly scholarship, a paid internship, and mentoring.', 'Free', 'Spring application', 'https://www.lafoundation.org/what-we-do/scholarships/laf-ignite'],
+          ['ASLA', 'Scholarships & Funding', 'Council of Fellows Scholarships', 'Awards for students with unmet need, applied for through LAF.', 'Free', 'Annual', 'https://www.asla.org/awards-events-main-landing/honors-awards/fellows/scholarships'],
+          ['CELA', 'Scholarships & Funding', 'Fountain Scholar Program', 'A $2,000 award for students of color nominated by their program.', 'Free', 'Annual', 'https://thecela.org/cela-fountain-scholar-program-2/'],
+          ['CSLA', 'Scholarships & Funding', 'Student Travel Grants', 'Up to $1,000 to attend Congress, LABash, and other events.', 'Free', 'Next due Nov 15', 'https://www.csla-aapc.ca/events/travel-grant-program'],
+          ['ASLA', 'Scholarships & Funding', 'CLARB Exam Success Grants', 'About $545 back for each L.A.R.E. section you pass, for candidates with financial need.', 'Free', 'Apply when you register', 'https://www.asla.org/about/asla-fund/clarb-licensure-program']
+        ] },
+      { name: 'Gain Experience', chip: 'Looking for experience', count: 21, question: 'Where do I find internships, research roles, and mentors?',
+        todo: ['Check what experience your state counts before you start.', 'Look for research assistant roles on funded teams.', 'Find a mentor through your chapter or a Fellow.', 'Track your hours as you go.'],
+        cards: [
+          ['CLARB', 'Exam & Licensure', 'Requirements by jurisdiction', 'See what experience, education, and exams each board requires.', 'Free', 'Ongoing', 'https://www.clarb.org/licensure/landscape-architecture-licensure-requirements/'],
+          ['ASLA', 'Internships & Jobs', 'JobLink Career Center', 'Job listings plus resume, interview, and career coaching tools.', 'Free to search', 'Ongoing', 'https://careers.asla.org/'],
+          ['LAF', 'Learning & Research', 'Case Study Investigation', 'Join a faculty-led team documenting how built landscapes perform.', 'Free', 'Feb to Aug', 'https://www.lafoundation.org/what-we-do/research/case-study-investigation'],
+          ['CSLA', 'Mentorship', 'KEEP Mentorship', 'Pair with a CSLA Fellow you choose, on your own schedule.', 'Free', 'Ongoing', 'https://www.csla-aapc.ca/awards/keep'],
+          ['ASLA', 'Mentorship', 'Leadership & Mentorship network', 'A member community for mentoring and leadership growth.', 'Members', 'Ongoing', 'https://www.asla.org/resources/practitioners/professional-practice-networks-home/(new)-leadership-mentorship'],
+          ['LAF', 'Internships & Jobs', 'LAF Ignite', 'A paid summer internship, mentoring, and a $10,000 yearly scholarship.', 'Free', 'Spring application', 'https://www.lafoundation.org/what-we-do/scholarships/laf-ignite']
+        ] },
+      { name: 'Graduate & Start Working', chip: 'Just graduated', count: 27, question: 'How do I land a job and stay connected after school?',
+        todo: ['Upgrade your CLARB account to a full Record.', 'Keep your membership at the recent graduate rate.', "Join your chapter's emerging professionals group.", 'Ask your employer whether they cover dues.'],
+        cards: [
+          ['CLARB', 'Exam & Licensure', 'CLARB Record', 'Your verified education and experience, and your application to the exam.', 'Fee', 'Renews yearly', 'https://www.clarb.org/about-clarb/clarb-programs-services/clarb-record/'],
+          ['ASLA', 'Community & Chapters', 'Recent graduate membership', 'Reduced Associate dues for your first three years in practice.', 'Fee', 'Ongoing', 'https://www.asla.org/emerging-professionals'],
+          ['ASLA', 'Community & Chapters', 'Chapter EP committees', 'Local networking, study groups, and early career events.', 'Members', 'Ongoing', 'https://www.asla.org/join/emerging-professionals/emerging-professional-chapter-chairs'],
+          ['ASLA', 'Learning & Research', 'SKILL | ED', 'Practice management courses on the business skills school skips.', 'Varies', 'Ongoing', 'https://learn.asla.org/skilled'],
+          ['LAF', 'Learning & Research', 'Landscape Performance Series', 'Case studies and tools for showing what landscapes deliver.', 'Free', 'Ongoing', 'https://www.lafoundation.org/what-we-do/research/landscape-performance'],
+          ['CSLA', 'Community & Chapters', 'Component associations', 'Your provincial association handles internship and registration.', 'Free', 'Ongoing', 'https://www.csla-aapc.ca/about-csla/component-associations']
+        ] },
+      { name: 'Prepare for the L.A.R.E.', chip: 'Studying for the L.A.R.E.', count: 22, question: 'How do I register, study, and pass the exam?',
+        todo: ['Read the Orientation Guide. CLARB requires it.', 'Try the free demo exam before test day.', 'Pick a window. Next one closes registration Nov 24.', 'Find a study group through your chapter.'],
+        cards: [
+          ['CLARB', 'Exam & Licensure', 'Register for the L.A.R.E.', 'Windows, deadlines, and how to schedule up to four sections.', 'Fee', 'Winter: Nov 30 to Dec 16', 'https://www.clarb.org/exam/register-to-take-exam/'],
+          ['CLARB', 'Exam & Licensure', 'Orientation Guide', 'Sections, question types, and testing rules. Required reading.', 'Free', 'Ongoing', 'https://www.clarb.org/resource/l-a-r-e-orientation-guide/'],
+          ['ASLA', 'Exam & Licensure', 'LARE Prep Hub', 'Prep Week, on-demand workshops, and conference sessions.', 'Varies', 'Prep Week each May', 'https://www.asla.org/become-a-la/getting-licensed/lare-prep-resources'],
+          ['CLARB', 'Exam & Licensure', 'Practice exams', 'Fifty questions from retired exams, with instant explanations.', '$25 per section', 'Ongoing', 'https://www.clarb.org/resource/l-a-r-e-practice-exams/'],
+          ['ASLA', 'Scholarships & Funding', 'CLARB Exam Success Grants', 'About $545 back for each section you pass, for candidates with financial need.', 'Free', 'Apply per section', 'https://www.asla.org/about/asla-fund/clarb-licensure-program'],
+          ['ASLA', 'Scholarships & Funding', 'Licensure Advancement Program', 'Exam fees, prep courses, and mentorship for women of color.', 'Free', 'Cohort based', 'https://www.asla.org/about/asla-fund']
+        ] },
+      { name: 'Get Licensed', chip: 'Ready to apply', count: 15, question: 'How do I apply to my board and keep my license portable?',
+        todo: ['Send your CLARB Record to your state board.', 'Get CLARB Certification to make future licenses faster.', 'In Canada, register through your component association.', 'Celebrate. Then mentor someone one stop behind you.'],
+        cards: [
+          ['CLARB', 'Exam & Licensure', 'Applying for licensure', 'How to transmit your Record to a board, first license or next.', 'Fee', '5 to 7 business days', 'https://www.clarb.org/licensure/applying-for-licensure/'],
+          ['CLARB', 'Exam & Licensure', 'Requirements by jurisdiction', 'Each of the 56 member boards, side by side.', 'Free', 'Ongoing', 'https://www.clarb.org/licensure/landscape-architecture-licensure-requirements/'],
+          ['CLARB', 'Exam & Licensure', 'CLARB Certification', 'A free credential that speeds up licensure in other states.', 'Free', 'Ongoing', 'https://www.clarb.org/about-clarb/clarb-programs-services/clarb-certification/'],
+          ['CSLA', 'Exam & Licensure', 'Becoming a landscape architect in Canada', 'From degree to provincial registration, step by step.', 'Free', 'Ongoing', 'https://www.csla-aapc.ca/career-resources/discover-career-landscape-architecture'],
+          ['CSLA', 'Exam & Licensure', 'National Reciprocity Agreement', 'How to practise in another province once you are registered.', 'Free', 'Ongoing', 'https://www.csla-aapc.ca/members/reciprocity-agreement'],
+          ['ASLA', 'Exam & Licensure', 'Licensure advocacy', 'Why licensure matters, and how the profession protects it.', 'Free', 'Ongoing', 'https://www.asla.org/about/advocacy/licensure']
+        ] }
+    ];
+    var DATA = [["ASLA", "Community & Chapters", "Student Membership", "Free national membership for landscape architecture students, with peer and professional connections, student programs, and a path to Associate membership.", "Free", "Ongoing", "https://www.asla.org/join/student-members", [0, 2]], ["ASLA", "Accreditation & Programs", "Degree Programs & Student Chapters Finder", "Search tool for finding accredited bachelor's and master's programs and the ASLA student chapters at each school.", "Free", "Ongoing", "https://www.asla.org/become-a-la/schools-student-chapters", [0]], ["ASLA", "Learning & Research", "Your Path to Landscape Architecture", "Introductory guide to the profession: what landscape architects do, the skills needed, choosing a school, and the route to licensure.", "Free", "Ongoing", "https://www.asla.org/become-a-la/your-path", [0]], ["ASLA", "Awards & Recognition", "ASLA Student Awards", "Annual juried awards recognizing outstanding student work in design, planning, communications, research, community service, and collaboration.", "Fee", "Annual; submissions typically due late April–early May; winners announced August", "https://www.asla.org/awards-events-main-landing/honors-awards/pro-student-awards/2026-student-cfe", [0]], ["LABash", "Events & Conferences", "LABash Student Conference", "Annual student-run landscape architecture conference hosted by a different accredited program each year, with lectures, tours, and networking.", "Varies", "Annual; host school rotates (Ohio State in 2026)", "https://www.asla.org/awards-events-main-landing/conferences-events/labash", [0]], ["ASLA", "Events & Conferences", "ASLA Conference: Students & Emerging Professionals", "ASLA's annual national conference, with student and EP programming, education sessions, networking, and in-person LARE prep workshops.", "Fee", "Annual; typically September, early-bird rates end in June", "https://www.aslaconference.com/", [0, 3, 4]], ["ASLA", "Community & Chapters", "Discounted Associate Membership", "Reduced Associate dues for recent graduates in their first three years of practice, plus career resources for emerging professionals.", "Fee", "Ongoing", "https://www.asla.org/emerging-professionals", [3, 2]], ["ASLA", "Leadership & Volunteering", "Associate Advisory Committee", "National committee of Associate members advising ASLA on emerging professional programs; its chair is the voting Associate Representative to the Board.", "Membership required", "Two-year terms; nominations each summer via chapter presidents", "https://www.asla.org/about/governing-documents/committees-and-affiliations", [3, 2]], ["ASLA", "Leadership & Volunteering", "Student Advisory Committee & Student Representative", "National committee of student members advising ASLA on student programs; its chair is the voting Student Representative on the Board of Trustees.", "Membership required", "Two-year terms; nominations reviewed in August", "https://www.asla.org/about/governing-documents/committees-and-affiliations", [0]], ["ASLA", "Community & Chapters", "Chapter Emerging Professionals Committees", "Many ASLA chapters have EP chairs or committees running local networking, LARE study support, and early-career events.", "Membership required", "Ongoing", "https://www.asla.org/join/emerging-professionals/emerging-professional-chapter-chairs", [3, 2, 4]], ["ASLA", "Awards & Recognition", "Emerging Professionals Design Competition", "Annual design competition for emerging professionals, run by the Associate Advisory Committee, with a site tied to the ASLA Conference host city.", "Varies", "Annual; opens spring, entries due mid-July", "https://www.asla.org/news-insights/land/(clone)-reimagining-angel-s-knoll-celebrating-the-2026-emerging-professionals-design-competition", [3, 2]], ["ASLA", "Awards & Recognition", "Emerging Professional Medal", "Annual ASLA honor for one early-career landscape architect showing exceptional leadership and contributions to the profession, community, or firm.", "Free", "Annual; nomination-based", "https://www.asla.org/awards-events-main-landing/honors-awards/honors/emerging-professional-medal", [2, 5]], ["ASLA", "Internships & Jobs", "JobLink Career Center", "ASLA's job board for landscape architecture positions, with resume, cover letter, interview, and career coaching tools.", "Varies", "Ongoing", "https://careers.asla.org/", [2, 3]], ["ASLA", "Exam & Licensure", "Getting Licensed", "Overview of the U.S. licensure path: accredited degree, supervised experience, passing the L.A.R.E., and applying through a state board.", "Free", "Ongoing", "https://www.asla.org/become-a-la/getting-licensed", [0, 2, 5]], ["ASLA", "Exam & Licensure", "LARE Prep Hub", "ASLA's L.A.R.E. prep resources: the annual LARE Prep Week, on-demand workshops for all four sections, and conference workshops.", "Varies", "Ongoing; LARE Prep Week held annually (May in recent years)", "https://www.asla.org/become-a-la/getting-licensed/lare-prep-resources", [4]], ["ASLA", "Exam & Licensure", "Licensure Advocacy", "ASLA's work to protect landscape architecture licensure in every state, with factsheets, a licensure handbook, and advocacy tools.", "Free", "Ongoing", "https://www.asla.org/about/advocacy/licensure", [5]], ["ASLA", "Scholarships & Funding", "Women of Color Licensure Advancement Program", "ASLA Fund program giving women of color support toward L.A.R.E. fees, exam prep courses, and mentorship from a licensed landscape architect.", "Free", "Cohort-based; applications historically due in spring", "https://www.asla.org/about/asla-fund", [1, 4, 5]], ["ASLA", "Scholarships & Funding", "Council of Fellows Scholarships", "Annual scholarships for students with unmet financial need, aimed at increasing participation from underrepresented groups.", "Free", "Annual; applied for through LAF's scholarship cycle", "https://www.asla.org/awards-events-main-landing/honors-awards/fellows/scholarships", [0, 1]], ["ASLA", "Learning & Research", "ASLA Online Learning", "On-demand and live webinar library with LA CES credit; many courses are free for student members and discounted for Associates.", "Varies", "Ongoing", "https://learn.asla.org/", [0, 2, 4]], ["ASLA", "Learning & Research", "SKILL | ED Practice Management Institute", "Practice management courses on the business skills school rarely teaches; many are free for Associates and discounted for students.", "Varies", "Ongoing", "https://learn.asla.org/skilled", [3, 2]], ["ASLA", "Community & Chapters", "Professional Practice Networks", "Ten member communities of practice around career development, practice, technology, and design; members join up to three at no extra cost.", "Membership required", "Ongoing", "https://www.asla.org/resources/practitioners/professional-practice-networks-home", [2, 3]], ["ASLA", "Mentorship", "Leadership & Mentorship PPN", "Professional Practice Network focused on leadership growth, workplace inclusion, and mentorship across career stages.", "Membership required", "Ongoing", "https://www.asla.org/resources/practitioners/professional-practice-networks-home/(new)-leadership-mentorship", [2, 3]], ["ASLA", "Events & Conferences", "Diversity Summits", "Convenings of experienced and emerging Black and Latinx landscape architects developing strategies to diversify the profession.", "Free", "Irregular; last listed 2019", "https://www.asla.org/focus-areas/diversity,-equity,-inclusion/diversity-equity-inclusion/diversity-summits", [2]], ["LAF", "Scholarships & Funding", "Student Scholarships", "More than $150,000 a year across 15+ named scholarships for undergraduate and graduate students in the U.S. and Canada.", "Free", "Opens November 2026; applications due February 1, 2027", "https://www.lafoundation.org/what-we-do/scholarships/student-scholarships", [0, 1]], ["LAF", "Awards & Recognition", "Olmsted Scholars Program", "LAF's top student honor: universities nominate students, and national winners receive $25,000 (graduate) or $15,000 (undergraduate).", "Free", "Faculty nominations due February 15; packets due March 15; announced May", "https://www.lafoundation.org/what-we-do/leadership/olmsted-scholars-program", [0, 1]], ["LAF", "Scholarships & Funding", "LAF Ignite", "Multi-year program for BIPOC students with a $10,000 annual scholarship, a paid summer internship, and one-on-one and peer mentoring.", "Free", "Applications open each spring; due mid-May", "https://www.lafoundation.org/what-we-do/scholarships/laf-ignite", [0, 1, 2]], ["LAF", "Learning & Research", "Case Study Investigation (CSI)", "Annual research program in which faculty and student research assistants partner with firms to document how built landscapes perform.", "Free", "2027 cycle: applications due November 1, 2026; runs February–August", "https://www.lafoundation.org/what-we-do/research/case-study-investigation", [0, 2]], ["LAF", "Learning & Research", "Landscape Performance Series", "Free online portal with 200+ case study briefs, fast facts, a benefits toolkit, and metrics guidance on landscape performance.", "Free", "Ongoing", "https://www.lafoundation.org/what-we-do/research/landscape-performance", [0, 3]], ["LAF", "Learning & Research", "Landscape Performance Trainings (LP101 & LP201)", "Hour-long trainings on demonstrating and quantifying landscape benefits; LP101 is available on demand and earns PDH.", "Varies", "Ongoing", "https://www.landscapeperformance.org/training", [0, 3]], ["LAF", "Leadership & Volunteering", "LAF Fellowship for Innovation and Leadership", "Yearlong fellowship giving professionals a $25,000 stipend to pursue a project idea that could change the profession.", "Free", "Call each June; deadline September 15", "https://www.lafoundation.org/what-we-do/leadership/laf-fellowship", [3, 5]], ["LAF", "Events & Conferences", "Innovation + Leadership Symposium", "Annual June event in Washington, DC where LAF Fellows present their work; free recordings earn PDH.", "Free", "Annually in June", "https://www.lafoundation.org/resources/2025/06/2025-symposium-videos", [0, 3]], ["LAF", "Scholarships & Funding", "Deb Mitchell Research Grant", "One $25,000 grant each year for a landscape architect leading a research project, preferring teams that pair practice and academia.", "Free", "Pre-proposals due December 1, 2026", "https://www.lafoundation.org/what-we-do/research/deb-mitchell-grant", [3]], ["LAF", "Learning & Research", "Research 101 for Practitioners", "Recorded webinar and resource packet introducing research methods to practitioners; earns 1.0 PDH after a quiz.", "Free", "Ongoing", "https://www.lafoundation.org/resources/2025/10/research-101-for-practitioners", [3]], ["LAF", "Community & Chapters", "Landscape Architecture Research Exchange", "Joint LAF–CELA initiative connecting practitioners and academics who share research interests, through networking events and webinars.", "Free", "Ongoing", "https://www.lafoundation.org/resources/2025/10/the-research-exchange", [0, 3]], ["LAF", "Learning & Research", "Webinars & Resource Library", "LAF's library of webinars, research reports, and guides on biodiversity, climate, equity, and landscape performance; many earn PDH.", "Free", "Ongoing", "https://www.lafoundation.org/resources", [0, 3]], ["CLARB", "Exam & Licensure", "Path to Licensure Overview", "Overview of the path from an accredited degree through supervised experience and the four-section exam to a license.", "Free", "Ongoing", "https://www.clarb.org/become-a-landscape-architect/requirements-process/", [0, 2, 3, 4, 5]], ["CLARB", "Exam & Licensure", "Licensure Requirements by Jurisdiction", "Interactive lookup of education, experience, exam, and CE requirements for all 56 CLARB member boards in the U.S. and Canada.", "Free", "Ongoing", "https://www.clarb.org/licensure/landscape-architecture-licensure-requirements/", [0, 2, 5]], ["CLARB", "Exam & Licensure", "CLARB Record", "Verified record of education, experience, exam results, and licenses; it is the application for the L.A.R.E. and is sent to licensing boards.", "Fee", "Renews annually", "https://www.clarb.org/about-clarb/clarb-programs-services/clarb-record/", [3, 4, 5]], ["CLARB", "Events & Conferences", "Your Path to Licensure Webinars & University Talks", "Free licensure webinars for students and emerging professionals, plus virtual talks for university professional practice courses.", "Free", "Through the year; intro webinar each spring and fall", "https://www.clarb.org/outreach-and-advocacy/", [0, 3]], ["CLARB", "Exam & Licensure", "L.A.R.E. Examination Process", "The four-section exam explained in eight steps, from setting up a CLARB Record and scheduling to receiving results.", "Free", "Ongoing", "https://www.clarb.org/exam/examination-process/", [4]], ["CLARB", "Exam & Licensure", "Register for the L.A.R.E.", "Registration, scheduling, and cancellation deadlines for each exam window; candidates can take up to four sections in one window.", "Fee", "Three windows a year; Winter 2026 Nov 30–Dec 16 (register by Nov 24)", "https://www.clarb.org/exam/register-to-take-exam/", [4]], ["CLARB", "Exam & Licensure", "Exam Dates, Deadlines & Fees", "CLARB exam and Record fees, transmittal processing times, and fee policies.", "Varies", "Ongoing", "https://www.clarb.org/take-the-exam/view-exam-dates-deadlines-and-fees", [1, 4]], ["CLARB", "Exam & Licensure", "L.A.R.E. Orientation Guide", "Downloadable guide to exam sections, question types, testing rules, and reference materials; required reading for every candidate.", "Free", "Ongoing", "https://www.clarb.org/resource/l-a-r-e-orientation-guide/", [4]], ["CLARB", "Exam & Licensure", "L.A.R.E. Candidate Handbook", "Official guide to the exam's structure, policies, and the candidate agreement every test-taker accepts.", "Free", "Ongoing", "https://www.clarb.org/resource/l-a-r-e-candidate-handbook/", [4]], ["CLARB", "Learning & Research", "How to Prepare for the L.A.R.E.", "CLARB's exam prep hub: reading list, test-day tips, accommodations, and a link to ASLA's LARE Prep Hub.", "Free", "Ongoing", "https://www.clarb.org/exam/how-to-prepare/", [4]], ["CLARB", "Exam & Licensure", "L.A.R.E. Practice Exams", "Fifty-question practice tests built from retired exam questions, with three attempts per section and instant explanations.", "$25 per section", "Ongoing; one year to use attempts", "https://www.clarb.org/resource/l-a-r-e-practice-exams/", [4]], ["CLARB", "Exam & Licensure", "Free L.A.R.E. Demo Exam", "Free online demo for practicing the exam platform's navigation and tools before test day.", "Free", "Ongoing", "https://www.clarb.org/resource/exam-demo/", [0, 4]], ["CLARB", "Exam & Licensure", "L.A.R.E. Testing Accommodations", "How to request testing accommodations, plus comfort aids already approved for use during the exam.", "Free", "Ongoing", "https://www.clarb.org/resource/l-a-r-e-testing-accommodations/", [4]], ["CLARB", "Scholarships & Funding", "Licensure Financial Support Partnerships", "Programs that help pay exam and licensure costs, including Exam Success Grants, reimbursement grants, GI Bill benefits, and Canadian support.", "Free", "Varies by program", "https://www.clarb.org/become-a-landscape-architect/requirements-process/paths-to-licensure/removing-barriers-to-licensure/support-partnerships/", [1, 4]], ["CLARB", "Exam & Licensure", "Applying for Licensure & Transmittals", "Step-by-step guide to sending your CLARB Record to a licensing board, for a first license or a license in another state.", "Fee", "Ongoing; transmittals take 5–7 business days", "https://www.clarb.org/licensure/applying-for-licensure/", [5]], ["CLARB", "Exam & Licensure", "CLARB Certification", "Free credential for Record holders who meet the Uniform Licensure Standard; it speeds up licensure in other jurisdictions.", "Free", "Ongoing", "https://www.clarb.org/about-clarb/clarb-programs-services/clarb-certification/", [5]], ["LAAB", "Accreditation & Programs", "Accreditation Overview", "Explains LAAB, the accreditor of first professional BLA, BSLA, and MLA programs in the U.S., and why accreditation matters for licensure.", "Free", "Ongoing", "https://www.asla.org/become-a-la/laab", [0, 5]], ["LAAB", "Accreditation & Programs", "Accreditation Actions & Annual Reports", "LAAB board decisions on program accreditation, annual report summaries, enrollment trends, and proposed standards changes.", "Free", "Posted after each winter and summer board meeting", "https://www.asla.org/become-a-la/laab/news-and-action", [0]], ["CELA", "Awards & Recognition", "Student Awards (Research & Creative Scholarship)", "Juried awards for outstanding student research or design work from CELA member schools; winners get full CELA conference registration.", "Free", "Nominations due October 31 annually", "https://thecela.org/student-nominations/", [0]], ["CELA", "Scholarships & Funding", "Fountain Scholar Program", "Endowed award for Black, Indigenous, and students of color nominated by their CELA member program, with a $2,000 scholarship.", "Free", "Annual; deadline not posted", "https://thecela.org/cela-fountain-scholar-program-2/", [0, 1]], ["CELA", "Awards & Recognition", "Student Award Winners Archive", "Past CELA student research, creative scholarship, poster, and Fountain Scholar winners, useful for seeing examples of winning work.", "Free", "Ongoing", "https://thecela.org/awards/", [0]], ["CELA", "Events & Conferences", "CELA Annual Conference", "Yearly conference for landscape architecture educators and researchers, with discounted student registration; 2027 runs March 17–20 in Denver.", "Fee", "March 17–20, 2027; registration opens November", "https://thecela.org/2027-cela/", [0, 2]], ["CELA", "Learning & Research", "Present Student Research at CELA", "Students can submit papers, posters, panels, or multimedia work to present at the CELA conference.", "Fee", "Abstracts typically due late September", "https://thecela.org/2027-cela/2027-conference-tracks/", [0, 2]], ["CELA", "Learning & Research", "Past Conference Proceedings", "Proceedings and abstracts from past CELA conferences showing current landscape architecture research topics and methods.", "Free", "Ongoing", "https://thecela.org/past-conferences/", [0]], ["CELA", "Learning & Research", "Landscape Journal", "CELA's peer-reviewed journal on landscape design, planning, and management, published twice a year since 1982.", "Varies", "Spring and fall issues", "https://thecela.org/landscape-journal/", [0]], ["CELA", "Leadership & Volunteering", "Student Director", "A graduate student serves on CELA's executive committee as Student Director, with a Director-Elect who takes over next.", "Free", "Annual term", "https://thecela.org/executive-committee/regional-student-directors/", [0]], ["CSLA", "Exam & Licensure", "Becoming a Landscape Architect in Canada", "Step-by-step guide from an accredited degree through internship and provincial or territorial registration, which may include the L.A.R.E.", "Free", "Ongoing", "https://www.csla-aapc.ca/career-resources/discover-career-landscape-architecture", [0, 2, 3, 4, 5]], ["CSLA", "Accreditation & Programs", "Accredited University Programs (Canada)", "List of Canada's LAAC-accredited BLA and MLA programs, which LAAB also recognizes.", "Free", "Ongoing", "https://www.csla-aapc.ca/career-resources/accredited-university-programs", [0]], ["CSLA", "Accreditation & Programs", "Landscape Architecture Accreditation Council (LAAC)", "CSLA's body that accredits Canadian first professional BLA and MLA programs on a regular review cycle.", "Free", "Ongoing", "https://www.csla-aapc.ca/about-csla/accreditation-council", [0]], ["CSLA", "Community & Chapters", "Student Membership", "Free CSLA membership for students, gained by joining a provincial or territorial component association.", "Free", "Ongoing", "https://www.csla-aapc.ca/our-members", [0]], ["CSLA", "Community & Chapters", "Associate Membership", "Low-cost membership for associates and interns working toward full membership in a component association.", "Fee", "Annual dues", "https://www.csla-aapc.ca/our-members", [3, 4]], ["CSLA", "Awards & Recognition", "Student Awards of Excellence", "National awards for the best student work from Canada's accredited programs, in Thesis/Practicum and Studio Project categories.", "Free", "Annual; deadline not posted", "https://www.csla-aapc.ca/awards/student-awards", [0]], ["CSLA", "Scholarships & Funding", "Student & Emerging Professional Travel Grants", "Grants helping students and early associates/interns attend the CSLA Congress or other approved events, including LABash.", "Free", "Congress grants due April 4; other events due November 15 or May 1", "https://www.csla-aapc.ca/events/travel-grant-program", [0, 1, 3]], ["CSLA", "Events & Conferences", "CSLA Congress", "CSLA's national conference; 2027 runs May 27–29 in Calgary with AALA.", "Fee", "May 27–29, 2027", "https://www.csla-aapc.ca/events/2027-congress", [0, 3]], ["CSLA", "Mentorship", "College of Fellows KEEP Mentorship", "Informal mentoring that pairs CSLA members, including students and interns, with a CSLA Fellow they choose.", "Free", "Ongoing", "https://www.csla-aapc.ca/awards/keep", [0, 2, 3, 4]], ["CSLA", "Awards & Recognition", "Emerging Professional Award", "National recognition for landscape architects early in their careers who show promise and contribute to the profession.", "Varies", "Annual; deadline not posted", "https://www.csla-aapc.ca/awards/emerging-professional-award", [3, 5]], ["CSLA", "Community & Chapters", "Component Associations", "Directory of CSLA's provincial and territorial associations, which handle internship recognition, membership, and registration.", "Free", "Ongoing", "https://www.csla-aapc.ca/about-csla/component-associations", [3, 4, 5]], ["CSLA", "Exam & Licensure", "National Reciprocity Agreement", "How a full member in one Canadian province or territory can apply to practise in another.", "Free", "Ongoing", "https://www.csla-aapc.ca/members/reciprocity-agreement", [5]], ["CSLA", "Scholarships & Funding", "LACF Scholarships", "National and regional scholarships for landscape architecture students in Canada, including Indigenous scholarships.", "Free", "Annual; deadlines vary", "https://lacf.ca/content/scholarships", [0, 1]], ["ASLA", "Scholarships & Funding", "CLARB Exam Success Grants", "Reimburses L.A.R.E. candidates with financial need about $545 for each exam section they pass. Funded by CLARB and run by the ASLA Fund.", "Free", "Apply for each section when exam registration opens; paid after you pass", "https://www.asla.org/about/asla-fund/clarb-licensure-program", [1, 4]]];
+    var STOP_LABELS = ['Study', 'Fund', 'Gain Experience', 'Graduate & Start Working', 'Prepare for the L.A.R.E.', 'Get Licensed'];
+    var st = this.state || {};
+    var picked = (this.state && this.state.active != null) ? this.state.active : (parseInt(this.props.startStop ?? '1', 10) - 1);
+    var self = this;
+    var pts = STOPS.map(function (s, i) { return [100 + 200 * i, i % 2 ? 151 : 61]; });
+    var seg = function (upto) {
+      var d = 'M0 61 L100 61';
+      for (var k = 1; k <= upto; k++) {
+        var a = pts[k - 1], b = pts[k], mx = (a[0] + b[0]) / 2;
+        d += ' C' + mx + ' ' + a[1] + ' ' + mx + ' ' + b[1] + ' ' + b[0] + ' ' + b[1];
+      }
+      return d;
+    };
+    var trail = seg(5) + ' L1200 151';
+    var walked = seg(picked);
+    var stops = STOPS.map(function (s, i) {
+      var on = i === picked;
+      var done = i < picked;
+      return {
+        num: String(i + 1), name: s.name, chip: s.chip, count: s.count,
+        pressed: on ? 'true' : 'false',
+        select: function () { self.setState({ active: i }); },
+        first: i === 0, last: i === STOPS.length - 1,
+        down: i < STOPS.length - 1 && i % 2 === 0,
+        up: i < STOPS.length - 1 && i % 2 === 1,
+        downWalkedStyle: (i < picked && i % 2 === 0) ? 'display: block' : 'display: none',
+        upWalkedStyle: (i < picked && i % 2 === 1) ? 'display: block' : 'display: none',
+        btnStyle: 'position: relative; z-index: 1; width: 100%; box-sizing: border-box; display: flex; flex-direction: column; align-items: center; gap: 10px; padding: ' + (i % 2 ? '80px' : '0') + ' 4px 8px; background: none; border: 0; cursor: pointer; color: #0E2219; text-align: center',
+        chipStyle: 'min-height: 44px; padding: 0 18px; border-radius: 999px; cursor: pointer; font-weight: 600; font-size: 15px; border: 1.5px solid #0E2219; ' + (on ? 'background: #0E2219; color: #FFFFFF;' : 'background: #FFFFFF; color: #0E2219;'),
+        markerStyle: 'box-sizing: border-box; flex: none; display: flex; align-items: center; justify-content: center; width: 60px; height: 60px; border-radius: 999px; border: 2px solid #0E2219; font-family: \'Bricolage Grotesque\', sans-serif; font-weight: 800; font-size: 22px; ' + (on ? 'background: #C8F04A; color: #0E2219; transform: scale(1.12); box-shadow: 0 0 0 8px #F1F3EE;' : done ? 'background: #0E2219; color: #C8F04A;' : 'background: #FFFFFF; color: #0E2219;'),
+        hereStyle: 'font-family: \'JetBrains Mono\', monospace; font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; box-sizing: border-box; height: 22px; line-height: 22px; padding: 0 8px; border-radius: 6px; background: #0E2219; color: #C8F04A; ' + (on ? 'visibility: visible;' : 'visibility: hidden;')
+      };
+    });
+    var c = STOPS[picked];
+    var cur = {
+      num: String(picked + 1), name: c.name, question: c.question, count: c.count,
+      todo: c.todo.map(function (t) { return { text: t }; }),
+      cards: c.cards.map(function (r) { return { org: r[0], need: r[1], name: r[2], desc: r[3], cost: r[4], timing: r[5], url: r[6] }; })
+    };
+    var expanded = st.expandedFor === picked;
+    if (expanded) {
+      cur.cards = DATA.filter(function (r) { return r[7].indexOf(picked) >= 0; }).map(function (r) { return { org: r[0], need: r[1], name: r[2], desc: r[3], cost: r[4], timing: r[5], url: r[6] }; });
+    }
+    cur.moreLabel = expanded ? 'Show the top six' : 'See all ' + c.count + ' resources';
+    cur.expandedAttr = expanded ? 'true' : 'false';
+    var counts = {};
+    DATA.forEach(function (r) { counts[r[1]] = (counts[r[1]] || 0) + 1; });
+    var needNames = Object.keys(counts).sort(function (a, b) { return counts[b] - counts[a]; });
+    var activeNeed = st.need == null ? null : st.need;
+    var needs = needNames.map(function (k) {
+      var on = k === activeNeed;
+      return {
+        name: k.charAt(0) + k.slice(1).toLowerCase(), count: counts[k], pressed: on ? 'true' : 'false',
+        select: function () { self.setState({ need: on ? null : k }); },
+        tileStyle: 'display: flex; justify-content: space-between; align-items: center; gap: 12px; min-height: 64px; padding: 0 20px; border-radius: 12px; cursor: pointer; font-weight: 600; font-size: 16px; text-align: left; ' + (on ? 'background: #0E2219; color: #FFFFFF; border: 1px solid #0E2219;' : 'background: #FFFFFF; color: #0E2219; border: 1px solid #D3DAD3;')
+      };
+    });
+    var needResults = activeNeed == null ? [] : DATA.filter(function (r) { return r[1] === activeNeed; }).map(function (r) {
+      return { org: r[0], name: r[2], desc: r[3], cost: r[4], timing: r[5], url: r[6], stops: r[7].map(function (i) { return STOP_LABELS[i]; }).join(', ') };
+    });
+    var DL = [
+      ['Oct 31, 2026', 'CELA Student Awards nominations close', 'CELA', 'Study', 'https://thecela.org/student-nominations/'],
+      ['Nov 1, 2026', 'Case Study Investigation team applications due', 'LAF', 'Gain Experience', 'https://www.lafoundation.org/what-we-do/research/case-study-investigation'],
+      ['Nov 15, 2026', 'Travel grants for January to June events', 'CSLA', 'Fund', 'https://www.csla-aapc.ca/events/travel-grant-program'],
+      ['Nov 24, 2026', 'Register for the Winter L.A.R.E. window (Nov 30 to Dec 16)', 'CLARB', 'Prepare for the L.A.R.E.', 'https://www.clarb.org/exam/register-to-take-exam/'],
+      ['Feb 1, 2027', 'LAF scholarship applications due', 'LAF', 'Fund', 'https://www.lafoundation.org/what-we-do/scholarships/student-scholarships'],
+      ['Feb 15, 2027', 'Olmsted Scholars faculty nominations due', 'LAF', 'Fund', 'https://www.lafoundation.org/what-we-do/leadership/olmsted-scholars-program'],
+      ['Mar 10, 2027', 'Register for the Spring L.A.R.E. window (Mar 29 to Apr 14)', 'CLARB', 'Prepare for the L.A.R.E.', 'https://www.clarb.org/exam/register-to-take-exam/'],
+      ['Mar 17 to 20, 2027', 'CELA Annual Conference, Denver', 'CELA', 'Study', 'https://thecela.org/2027-cela/'],
+      ['Apr 4, 2027', 'Travel grants for CSLA Congress', 'CSLA', 'Fund', 'https://www.csla-aapc.ca/events/travel-grant-program'],
+      ['May 1, 2027', 'Travel grants for July to December events', 'CSLA', 'Fund', 'https://www.csla-aapc.ca/events/travel-grant-program'],
+      ['Mid-May 2027', 'LAF Ignite applications due', 'LAF', 'Fund', 'https://www.lafoundation.org/what-we-do/scholarships/laf-ignite'],
+      ['May 27 to 29, 2027', 'CSLA Congress, Calgary', 'CSLA', 'Graduate & Start Working', 'https://www.csla-aapc.ca/events/2027-congress'],
+      ['Jul 7, 2027', 'Register for the Summer L.A.R.E. window (Jul 26 to Aug 11)', 'CLARB', 'Prepare for the L.A.R.E.', 'https://www.clarb.org/exam/register-to-take-exam/'],
+      ['Mid-July 2027', 'Emerging Professionals Design Competition entries due', 'ASLA', 'Graduate & Start Working', 'https://www.asla.org/emerging-professionals']
+    ];
+    var dlOpen = !!st.allDeadlines;
+    return {
+      stops: stops, cur: cur, trail: trail, walked: walked,
+      toggleAll: function () { self.setState({ expandedFor: expanded ? null : picked }); },
+      needs: needs, needResults: needResults,
+      needTitle: activeNeed == null ? '' : (activeNeed.charAt(0) + activeNeed.slice(1).toLowerCase()) + ': ' + needResults.length + ' resources',
+      needPanelStyle: activeNeed == null ? 'display: none' : 'display: block; margin-top: 32px; padding: 32px; background: #FFFFFF; border: 1px solid #D3DAD3; border-radius: 20px',
+      clearNeed: function () { self.setState({ need: null }); },
+      deadlinesAll: DL.map(function (d) { return { date: d[0], title: d[1], org: d[2], stop: d[3], url: d[4] }; }),
+      dlListStyle: dlOpen ? 'display: block' : 'display: none',
+      dlLabel: dlOpen ? 'Hide full calendar' : 'All deadlines',
+      dlExpanded: dlOpen ? 'true' : 'false',
+      toggleDeadlines: function () { self.setState({ allDeadlines: !dlOpen }); },
+      deadlines: [
+        { date: 'Oct 31', title: 'CELA Student Awards nominations close', org: 'CELA', stop: 'Study', url: 'https://thecela.org/student-nominations/' },
+        { date: 'Nov 15', title: 'Travel grants for January to June events', org: 'CSLA', stop: 'Fund', url: 'https://www.csla-aapc.ca/events/travel-grant-program' },
+        { date: 'Nov 24', title: 'Register for the Winter L.A.R.E. window', org: 'CLARB', stop: 'Prepare for the L.A.R.E.', url: 'https://www.clarb.org/exam/register-to-take-exam/' },
+        { date: 'Feb 1', title: 'LAF scholarship applications due', org: 'LAF', stop: 'Fund', url: 'https://www.lafoundation.org/what-we-do/scholarships/student-scholarships' }
+      ],
+      orgs: [
+        { short: 'ASLA', full: 'American Society of Landscape Architects', url: 'https://www.asla.org' },
+        { short: 'CELA', full: 'Council of Educators in Landscape Architecture', url: 'https://thecela.org' },
+        { short: 'CLARB', full: 'Council of Landscape Architectural Registration Boards', url: 'https://www.clarb.org' },
+        { short: 'CSLA', full: 'Canadian Society of Landscape Architects', url: 'https://www.csla-aapc.ca' },
+        { short: 'LAAB', full: 'Landscape Architectural Accreditation Board', url: 'https://www.asla.org/become-a-la/laab' },
+        { short: 'LAF', full: 'Landscape Architecture Foundation', url: 'https://www.lafoundation.org' }
+      ]
+    };
+  }
+}
+
+(function(){
+  var SVGNS = 'http://www.w3.org/2000/svg';
+  function get(scope, path){ path = path.trim(); if (path === 'true') return true; if (path === 'false') return false;
+    return path.split('.').reduce(function(o, k){ return o == null ? undefined : o[k]; }, scope); }
+  function interp(str, scope){ var m = str.match(/^\{\{\s*([^}]+?)\s*\}\}$/); if (m) return get(scope, m[1]);
+    return str.replace(/\{\{\s*([^}]+?)\s*\}\}/g, function(_, p){ var v = get(scope, p); return v == null ? '' : v; }); }
+  function walk(node, scope, out){
+    if (node.nodeType === 3) { var t = interp(node.textContent, scope); out.appendChild(document.createTextNode(t == null ? '' : String(t))); return; }
+    if (node.nodeType !== 1) return;
+    var tag = node.localName;
+    if (tag === 'sc-for') { var list = interp(node.getAttribute('list'), scope) || []; var as = node.getAttribute('as');
+      list.forEach(function(item, i){ var s = Object.create(scope); s[as] = item; s.$index = i; node.childNodes.forEach(function(c){ walk(c, s, out); }); }); return; }
+    if (tag === 'sc-if') { if (interp(node.getAttribute('value'), scope)) node.childNodes.forEach(function(c){ walk(c, scope, out); }); return; }
+    var el = node.namespaceURI === SVGNS ? document.createElementNS(SVGNS, node.tagName) : document.createElement(tag);
+    Array.prototype.forEach.call(node.attributes, function(a){
+      if (/^on[a-z]+$/i.test(a.name)) { var fn = interp(a.value, scope); if (typeof fn === 'function') el.addEventListener(a.name.slice(2).toLowerCase(), fn); return; }
+      if (a.name.indexOf('hint-') === 0) return;
+      var v = interp(a.value, scope); if (v === false || v == null) return; el.setAttribute(a.name, v === true ? '' : String(v));
+    });
+    node.childNodes.forEach(function(c){ walk(c, scope, el); });
+    out.appendChild(el);
+  }
+  var comp = new Component(); var tpl = document.getElementById('tpl'); var root = document.getElementById('app');
+  window.render = function(){ var frag = document.createDocumentFragment(); var vals = comp.renderVals();
+    tpl.content.childNodes.forEach(function(c){ walk(c, vals, frag); }); root.replaceChildren(frag); };
+  render();
+})();
+
+</script>
+</body>
+</html>
