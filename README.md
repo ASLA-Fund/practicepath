@@ -1,17 +1,24 @@
-# Practice Path
+# Path to Practice
 
-A homepage prototype for Practice Path, an organization-agnostic guide for landscape architecture students and emerging professionals, from university through licensure. It brings together programs from the Landscape Architecture President's Council organizations: ASLA, CELA, CLARB, CSLA, LAAB, and LAF.
+**Studio. Practice. License.** A LABash resource.
 
-The site is a single static page, `index.html`, with no build step. It is maintained by ASLA on behalf of the President's Council.
+Path to Practice is a guide for landscape architecture students and emerging professionals, from the classroom to career and licensure. It brings together programs from ASLA, CELA, CLARB, CSLA, LAAB, and LAF, organized by where you are on the path. It is maintained by ASLA.
 
-## Publishing with GitHub Pages
+The site is a single static page, `index.html`, with no build step.
 
-1. Open the repository's **Settings › Pages**.
-2. Under **Build and deployment**, set **Source** to "Deploy from a branch".
-3. Select the `main` branch and the `/ (root)` folder, then save.
+## Publishing
 
-The site will then be live at `https://<organization>.github.io/<repository>/`.
+The site is served by GitHub Pages from the `main` branch. To publish a change, update `index.html` on `main`; the live page refreshes within a minute or two.
+
+## Domain and QR codes
+
+- `PathToPractice.org` should permanently redirect (301) to the live page.
+- Give every QR code and printed link its own tag, so traffic can be measured by source:
+  - `?src=flyer`
+  - `?src=campus-<school>`
+  - `?src=labash`
+- The tags only count once the page has an analytics tool such as GA4 or Plausible.
 
 ## Content
 
-The resource data (75 programs) is embedded in `index.html` and matches the Practice Path resource database spreadsheet. Links and deadlines were checked on October 15, 2026.
+The resource data (60 programs) is embedded in `index.html` and matches the Path to Practice resource database spreadsheet. Links and deadlines were checked on October 15, 2026.
