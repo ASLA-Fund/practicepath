@@ -21,9 +21,14 @@ The site reads two spreadsheet files in this repository. Edit them in Excel or G
 - **Date** and **End Date** use `YYYY-MM-DD`. Leave End Date blank for single-day deadlines.
 - Past dates disappear from the site automatically, and the next four upcoming dates fill the "Coming up" cards.
 
-### Stop checklists
+### Stop checklists, quotes, and FAQ
 
-The "Start here" checklists for each stop are in `index.html`. Search for `todo:` to find them.
+These live in `index.html`:
+
+- **Stop checklists:** search for `todo:`.
+- **Member quotes:** search for `QUOTES`. Quotes come from ASLA Member Voices and must stay word for word, with the member's name, title, company, and chapter. Headshots load from Member Voices by member ID.
+- **FAQ:** search for `FAQ`.
+- **Costs:** the exam figure (about $545 per section) comes from the CLARB Exam Success Grant. Check CLARB's fee page each year and update the "What it costs" box if it changes.
 
 ## Settings
 
