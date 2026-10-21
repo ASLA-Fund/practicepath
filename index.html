@@ -195,6 +195,8 @@ h2{font-weight:700;font-size:36px;letter-spacing:-.02em;line-height:1.1}
 .site-foot .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;font-size:14px;color:var(--ink2)}
 .site-foot nav{display:flex;flex-wrap:wrap;gap:8px 24px}
 .site-foot nav a{display:inline-block;padding:6px 0}
+.sponsor{display:flex !important;justify-content:flex-start !important;flex-wrap:wrap;align-items:center;gap:12px 24px;padding-bottom:24px;margin-bottom:24px !important;border-bottom:1px solid var(--line)}
+.sponsor img{display:block;height:auto;width:230px;max-width:100%}
 
 
 /* quotes */
@@ -521,6 +523,10 @@ Thanks,
 </main>
 
 <footer class="site-foot">
+  <div class="wrap sponsor">
+    <span class="eyebrow" style="color:var(--ink2)">Sponsored by</span>
+    <a href="https://www.asla.org" data-ext data-name="ASLA sponsor logo" data-org="ASLA" aria-label="American Society of Landscape Architects (opens in a new tab)"><img src="asla-logo.svg" alt="American Society of Landscape Architects" width="230" height="59"></a>
+  </div>
   <div class="wrap">
     <span>Path to Practice · A LABash resource · One place. Every step.</span>
     <nav aria-label="Footer" id="foot-nav">
@@ -556,22 +562,22 @@ var ORGS = [
 
 var HS = 'https://membervoices.asla.org/api/headshots/';
 var QUOTES = {
-  study: { id:'1190915', name:'Tiara Rachman', role:'Landscape Designer, LandDesign, Inc.', chapter:'California Chapter', text:'Student membership is amazing because it’s free and gives you access to a huge range of benefits, including scholarships, competitions, and online webinars that keep you updated on the latest shifts in the profession.' },
-  fund: { id:'1168470', name:'Lucila Silva-Santisteban', role:'Associate Landscape Designer, Sasaki', chapter:'New York Chapter', text:'ASLA has supported me immensely in my LARE journey. The grant I received through my local chapter helped me financially to take the tests, which would have been much harder to manage as an emerging professional in New York City.' },
-  experience: { id:'783001', name:'Lara Moffat', role:'Senior Design Consultant, Business Development Lead, David Harber', chapter:'Texas Chapter', text:'Being a student member of ASLA opened the doors to my first internship, which directly lead to an 11-year career with a major firm.' },
-  graduate: { id:'1172134', name:'Rachel Meier', role:'Landscape Architect, Richter & Cegan', chapter:'Connecticut Chapter', text:'ASLA has helped bridge the gap between being a student, graduating, and entering the workforce. It exposed me to job opportunities and connections—like someone in Pennsylvania knowing someone in Connecticut—that allowed me to reach out and find my place in the profession.' },
-  lare: { id:'1170414', name:'Yiqing (Ethan) Wu', role:'Landscape Designer, James Corner Field Operations', chapter:'Washington Chapter', text:'Attending the LARE prep sessions at the ASLA conference was a major factor in me passing my exams. The sessions clarified exactly what knowledge was needed and shared the specific learning skills required to get me through the test.' },
-  licensed: { id:'1162838', name:'Kirk Keller', role:'Principal, Studio One Eleven', chapter:'Nevada, Idaho/Montana, and Southern California chapters', text:'Licensure is a major milestone—it builds the confidence to work across multiple states and provides a level of legitimacy and professionalism that defines our care of practice.' },
-  between: { id:'1111765', name:'Gordon Lemmel', role:'Senior Landscape Architect, Interstate Engineering', chapter:'Nebraska Dakotas Chapter President', text:'Early in my career, I connected with emerging professionals across the country through study groups. We shared information, prepared for exams together, and built friendships that have lasted to this day.' },
-  employer: { id:'1190295', name:'Valeriia Tolkacheva', role:'Landscape Designer, Colleen Giordano & Associates', chapter:'Florida Chapter', text:'I think it’s important for emerging professionals to ask prospective employers whether they support ASLA membership, conference attendance, and professional development.' },
-  employer2: { id:'1083862', name:'Sarah White', role:'Campus Planner, Northwestern University', chapter:'Illinois Chapter', text:'My firm supported my membership right out of school, making it easy to transition from student to professional. Since then, ASLA has helped me understand the professional landscape and the opportunities available to landscape architects across the city.' },
-  after: { id:'1105652', name:'Jonathan Wagner', role:'Principal, Studio 16:19', chapter:'Texas Chapter', text:'ASLA creates a cycle of mentorship. I benefited from mentors early in my career, and today I have the opportunity to give back by mentoring students and helping them build their own careers.' }
+  study: { id:'1190915', des:'Assoc. ASLA', name:'Tiara Rachman', role:'Landscape Designer, LandDesign, Inc.', chapter:'California Chapter', text:'Student membership is amazing because it’s free and gives you access to a huge range of benefits, including scholarships, competitions, and online webinars that keep you updated on the latest shifts in the profession.' },
+  fund: { id:'1168470', des:'ASLA', name:'Lucila Silva-Santisteban', role:'Associate Landscape Designer, Sasaki', chapter:'New York Chapter', text:'ASLA has supported me immensely in my LARE journey. The grant I received through my local chapter helped me financially to take the tests, which would have been much harder to manage as an emerging professional in New York City.' },
+  experience: { id:'783001', des:'ASLA', name:'Lara Moffat', role:'Senior Design Consultant, Business Development Lead, David Harber', chapter:'Texas Chapter', text:'Being a student member of ASLA opened the doors to my first internship, which directly lead to an 11-year career with a major firm.' },
+  graduate: { id:'1172134', des:'ASLA', name:'Rachel Meier', role:'Landscape Architect, Richter & Cegan', chapter:'Connecticut Chapter', text:'ASLA has helped bridge the gap between being a student, graduating, and entering the workforce. It exposed me to job opportunities and connections—like someone in Pennsylvania knowing someone in Connecticut—that allowed me to reach out and find my place in the profession.' },
+  lare: { id:'1170414', des:'ASLA', name:'Yiqing (Ethan) Wu', role:'Landscape Designer, James Corner Field Operations', chapter:'Washington Chapter', text:'Attending the LARE prep sessions at the ASLA conference was a major factor in me passing my exams. The sessions clarified exactly what knowledge was needed and shared the specific learning skills required to get me through the test.' },
+  licensed: { id:'1162838', des:'ASLA', name:'Kirk Keller', role:'Principal, Studio One Eleven', chapter:'Nevada, Idaho/Montana, and Southern California chapters', text:'Licensure is a major milestone—it builds the confidence to work across multiple states and provides a level of legitimacy and professionalism that defines our care of practice.' },
+  between: { id:'1111765', des:'ASLA', name:'Gordon Lemmel', role:'Senior Landscape Architect, Interstate Engineering', chapter:'Nebraska Dakotas Chapter President', text:'Early in my career, I connected with emerging professionals across the country through study groups. We shared information, prepared for exams together, and built friendships that have lasted to this day.' },
+  employer: { id:'1190295', des:'Assoc. ASLA', name:'Valeriia Tolkacheva', role:'Landscape Designer, Colleen Giordano & Associates', chapter:'Florida Chapter', text:'I think it’s important for emerging professionals to ask prospective employers whether they support ASLA membership, conference attendance, and professional development.' },
+  employer2: { id:'1083862', des:'ASLA', name:'Sarah White', role:'Campus Planner, Northwestern University', chapter:'Illinois Chapter', text:'My firm supported my membership right out of school, making it easy to transition from student to professional. Since then, ASLA has helped me understand the professional landscape and the opportunities available to landscape architects across the city.' },
+  after: { id:'1105652', des:'Assoc. ASLA', name:'Jonathan Wagner', role:'Principal, Studio 16:19', chapter:'Texas Chapter', text:'ASLA creates a cycle of mentorship. I benefited from mentors early in my career, and today I have the opportunity to give back by mentoring students and helping them build their own careers.' }
 };
 function initials(n){ return n.split(/\s+/).filter(function(w){ return /^[A-Z]/.test(w); }).slice(0, 2).map(function(w){ return w[0]; }).join(''); }
 function quoteHTML(q, big){
   if (!q) return '';
   return '<figure class="quote' + (big ? ' big' : '') + '"><img src="' + HS + q.id + '/image" alt="Photo of ' + esc(q.name) + '" loading="lazy" width="64" height="64" onerror="this.outerHTML=\'<span class=&quot;ph&quot; aria-hidden=&quot;true&quot;>' + esc(initials(q.name)) + '</span>\'">' +
-    '<div><blockquote>“' + esc(q.text) + '”</blockquote><figcaption><b>' + esc(q.name) + '</b>, ' + esc(q.role) + ' · ' + esc(q.chapter) + '</figcaption></div></figure>';
+    '<div><blockquote>“' + esc(q.text) + '”</blockquote><figcaption><b>' + esc(q.name) + (q.des ? ', ' + esc(q.des) : '') + '</b>, ' + esc(q.role) + ' · ' + esc(q.chapter) + '</figcaption></div></figure>';
 }
 var FAQ = [
   ['Can I take the L.A.R.E. before I finish my experience?', '<p>Usually, yes. CLARB notes that most boards let you start the exam while you are gaining experience. All four sections must be passed before you can be licensed. Rules differ by board, so check yours.</p><p><a href="' + out('https://www.clarb.org/licensure/landscape-architecture-licensure-requirements/') + '" target="_blank" rel="noopener">Look up your board’s requirements</a></p>'],
