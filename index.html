@@ -79,6 +79,7 @@ h2{font-weight:700;font-size:36px;letter-spacing:-.02em;line-height:1.1}
 .chip{min-height:44px;padding:0 18px;border-radius:999px;cursor:pointer;font-weight:600;font-size:15px;border:1.5px solid var(--ink);background:#fff}
 .chip[aria-pressed="true"]{background:var(--ink);color:#fff}
 .join-band{margin-top:32px;max-width:760px;display:flex;flex-wrap:wrap;align-items:center;gap:14px 24px;padding:18px 22px;border-radius:16px;background:var(--accent)}
+.join-band[hidden]{display:none}
 .join-band p{margin:0;flex:1 1 320px;font-size:16px;line-height:1.45}
 .nav-join{font-weight:700;padding:8px 14px !important;border-radius:999px;background:var(--accent)}
 .home-band{margin-top:24px;display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:20px 40px;padding:28px;border-radius:16px;background:#fff;border:1px solid var(--line)}
@@ -776,6 +777,7 @@ function syncSelection(){
   });
   document.querySelectorAll('[data-walk]').forEach(function(sv){ sv.classList.toggle('on', +sv.getAttribute('data-walk') < state.stop); });
   document.querySelectorAll('.chip').forEach(function(c){ c.setAttribute('aria-pressed', +c.getAttribute('data-chip') === state.stop ? 'true' : 'false'); });
+  var jb = document.querySelector('.join-band'); if (jb) jb.hidden = state.stop > 2;
   layoutVertical();
 }
 function stopLink(i){ return SITE_URL + '#' + STOPS[i].slug; }
