@@ -4,7 +4,7 @@
 
 Path to Practice is a guide for landscape architecture students and emerging professionals, from the classroom to career and licensure. It brings together programs from ASLA, CELA, CLARB, CSLA, LAAB, and LAF, organized by where you are on the path. It is maintained by ASLA.
 
-Live site: https://asla-fund.github.io/practicepath/
+Live site: https://pathtopractice.aslalabs.org/
 
 ## Updating content (no coding needed)
 
@@ -50,9 +50,9 @@ Every stop has its own link:
 | Prepare for the L.A.R.E. | `#lare` |
 | Get Licensed | `#licensed` |
 
-For example: `https://asla-fund.github.io/practicepath/#lare`
+For example: `https://pathtopractice.aslalabs.org/#lare`
 
-Add `?src=` to any link or QR code to see where visitors came from. For example, `https://asla-fund.github.io/practicepath/?src=flyer#lare`.
+Add `?src=` to any link or QR code to see where visitors came from. For example, `https://pathtopractice.aslalabs.org/?src=flyer#lare`.
 
 Links out to partner sites carry `utm_source=pathtopractice`, so each organization can see Path to Practice traffic in its own analytics.
 
