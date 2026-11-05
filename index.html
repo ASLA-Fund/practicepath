@@ -682,7 +682,7 @@ function parseCSV(text){
 function normResources(rows){
   return rows.filter(function(r){ return r.Resource && (r.Status || 'Active').toLowerCase() !== 'retired'; }).map(function(r){
     return {
-      name: r.Resource, org: r.Organization, desc: r.Description, need: r.Need, cost: r.Cost,
+      id: r.ID, name: r.Resource, org: r.Organization, desc: r.Description, need: r.Need, cost: r.Cost,
       timing: r['Timing / Deadline'], url: r.URL,
       stops: STOPS.map(function(s, i){ return /^y/i.test(r[s.key] || '') ? i : -1; }).filter(function(i){ return i >= 0; }),
       featured: (r['Featured On Stops'] || '').split(/[;, ]+/).filter(Boolean).map(function(n){ return parseInt(n, 10) - 1; })
@@ -818,10 +818,19 @@ function mixOrgs(list, seed){
   while (more) { more = false; order.forEach(function(o){ var g = groups[o]; if (g.length) { out.push(g.shift()); more = more || g.length > 0; } }); }
   return out;
 }
-function stopResources(i){ return mixOrgs(RES.filter(function(r){ return r.stops.indexOf(i) >= 0; }), STOP_LEAD[i]); }
+// Pin specific resources to a position at a stop (stop number 1-6, position 1 = first).
+var STOP_PIN = { 5: { 'PP-060': 2 } };
+function applyPins(list, i){
+  var pins = STOP_PIN[i + 1]; if (!pins) return list;
+  var out = list.filter(function(r){ return !pins[r.id]; });
+  list.filter(function(r){ return pins[r.id]; }).sort(function(a, b){ return pins[a.id] - pins[b.id]; })
+    .forEach(function(r){ out.splice(Math.min(pins[r.id] - 1, out.length), 0, r); });
+  return out;
+}
+function stopResources(i){ return applyPins(mixOrgs(RES.filter(function(r){ return r.stops.indexOf(i) >= 0; }), STOP_LEAD[i]), i); }
 function featuredFor(i){
   var f = RES.filter(function(r){ return r.featured.indexOf(i) >= 0; });
-  return f.length ? mixOrgs(f, STOP_LEAD[i]).slice(0, 6) : stopResources(i).slice(0, 6);
+  return f.length ? applyPins(mixOrgs(f, STOP_LEAD[i]), i).slice(0, 6) : stopResources(i).slice(0, 6);
 }
 function renderPanel(){
   var i = state.stop, s = STOPS[i], all = stopResources(i);
