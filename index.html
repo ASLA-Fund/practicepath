@@ -797,20 +797,31 @@ function cardHTML(r){
 }
 // Interleave organizations so no one organization always leads. The starting
 // organization rotates by stop, so each stop opens with a different partner.
+// Which organization leads each stop and each "browse by need" category.
+// Edit these to change who shows up first. Everything after the lead alternates.
+var STOP_LEAD = ['LAAB', 'LAF', 'LAF', 'CLARB', 'CLARB', 'CLARB'];
+var NEED_LEAD = {
+  'Scholarships & Funding': 'LAF', 'Exam & Licensure': 'CLARB', 'Internships & Jobs': 'Land8',
+  'Accreditation & Programs': 'LAAB', 'Awards & Recognition': 'LAF', 'Learning & Research': 'LAF',
+  'Events & Conferences': 'LABash', 'Mentorship': 'CSLA', 'Community & Chapters': 'CSLA',
+  'Leadership & Volunteering': 'CELA'
+};
 function mixOrgs(list, seed){
   var groups = {}, order = [];
   list.forEach(function(r){ if (!groups[r.org]) { groups[r.org] = []; order.push(r.org); } groups[r.org].push(r); });
   order.sort();
-  var k = order.length ? (seed || 0) % order.length : 0;
+  var k = typeof seed === 'string' ? Math.max(0, order.indexOf(seed)) : (order.length ? (seed || 0) % order.length : 0);
   order = order.slice(k).concat(order.slice(0, k));
+  // Keep ASLA out of the opening spot unless it is the only organization.
+  if (order[0] === 'ASLA' && order.length > 1) order.push(order.shift());
   var out = [], more = true;
   while (more) { more = false; order.forEach(function(o){ var g = groups[o]; if (g.length) { out.push(g.shift()); more = more || g.length > 0; } }); }
   return out;
 }
-function stopResources(i){ return mixOrgs(RES.filter(function(r){ return r.stops.indexOf(i) >= 0; }), i + 1); }
+function stopResources(i){ return mixOrgs(RES.filter(function(r){ return r.stops.indexOf(i) >= 0; }), STOP_LEAD[i]); }
 function featuredFor(i){
   var f = RES.filter(function(r){ return r.featured.indexOf(i) >= 0; });
-  return f.length ? mixOrgs(f, i + 1).slice(0, 6) : stopResources(i).slice(0, 6);
+  return f.length ? mixOrgs(f, STOP_LEAD[i]).slice(0, 6) : stopResources(i).slice(0, 6);
 }
 function renderPanel(){
   var i = state.stop, s = STOPS[i], all = stopResources(i);
@@ -884,6 +895,7 @@ function renderResults(){
     var hay = (r.name + ' ' + r.desc + ' ' + r.org + ' ' + r.need + ' ' + r.timing + ' ' + r.stops.map(function(i){ return STOPS[i].name; }).join(' ')).toLowerCase().replace(/\./g, '');
     return terms.every(function(t){ return hay.indexOf(t) >= 0; });
   });
+  hits = mixOrgs(hits, need ? NEED_LEAD[need] : 0);
   var title = (need ? needLabel(need) : 'Results') + (q ? ' for “' + esc(state.q.trim()) + '”' : '') + ': ' + hits.length;
   $('results').hidden = false;
   $('results').innerHTML = '<div class="results-head"><h3>' + title + '</h3><button type="button" class="link-btn" id="clear-btn">Clear</button></div>' +
