@@ -796,10 +796,22 @@ function cardHTML(r){
     '<a class="visit" href="' + esc(out(r.url)) + '" target="_blank" rel="noopener" data-name="' + esc(r.name) + '" data-org="' + esc(r.org) + '">Visit ' + esc(r.org) +
     '<span class="sr" style="position:absolute;left:-9999px"> (opens in a new tab)</span><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a></article>';
 }
-function stopResources(i){ return RES.filter(function(r){ return r.stops.indexOf(i) >= 0; }); }
+// Interleave organizations so no one organization always leads. The starting
+// organization rotates by stop, so each stop opens with a different partner.
+function mixOrgs(list, seed){
+  var groups = {}, order = [];
+  list.forEach(function(r){ if (!groups[r.org]) { groups[r.org] = []; order.push(r.org); } groups[r.org].push(r); });
+  order.sort();
+  var k = order.length ? (seed || 0) % order.length : 0;
+  order = order.slice(k).concat(order.slice(0, k));
+  var out = [], more = true;
+  while (more) { more = false; order.forEach(function(o){ var g = groups[o]; if (g.length) { out.push(g.shift()); more = more || g.length > 0; } }); }
+  return out;
+}
+function stopResources(i){ return mixOrgs(RES.filter(function(r){ return r.stops.indexOf(i) >= 0; }), i + 1); }
 function featuredFor(i){
   var f = RES.filter(function(r){ return r.featured.indexOf(i) >= 0; });
-  return f.length ? f.slice(0, 6) : stopResources(i).slice(0, 6);
+  return f.length ? mixOrgs(f, i + 1).slice(0, 6) : stopResources(i).slice(0, 6);
 }
 function renderPanel(){
   var i = state.stop, s = STOPS[i], all = stopResources(i);
